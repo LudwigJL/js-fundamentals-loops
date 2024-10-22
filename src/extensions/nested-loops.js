@@ -49,7 +49,7 @@ for(let i = 1; i <= simpleOne.length; i++){
 // 4. As 2, but each array should contain arrays from 1 to the outer 'loop index' with the value of the outer 'loop index'. Update array 'deepOne'
 //    eg [[[1]],[[2],[2,2]],...]
 
-for(let i = 1; i <= simpleOne.length; i++){
+for(let i = 1; i <= 10; i++){
   const temp = []
 
   for(let j = 1; j <= i; j++){
@@ -66,29 +66,45 @@ for(let i = 1; i <= simpleOne.length; i++){
 // 5. As 4, update array 'deepTwo' so that the result is:
 //       [[[1]],[[1],[1,2]],...]
 
-//This dont work
-for(let i = 1; i <= simpleOne.length; i++){
-  const temp = []
-  const old =  i - 1;
+for(let i = 1; i <= 10; i++){
+  const outer = []
 
-  for(let j = 1; j <= i; j++){
-    const sub = []
-  
-    for(let x = 0; x < j; x++){
-      if(old > 0){
-        sub.push(old, i)
-      }
-      else{
-        sub.push(i)
-      }
+  for(let j = 1; j <= i; j++) {
+    const inner = []
+    for(let k = 1; k <= j; k++) {
+      inner.push(k)
+
+
     }
-    temp.push(sub)
+
+    outer.push(inner)
   }
-  deepOne.push(deepTwo)
+
+  deepTwo.push(outer)
 }
+
+
 
 // 6. As 5, update the array 'deepThree', but the result should be the average of the sum of the squares of the numbers in each array
 //       [[1],[[1],[2.5]],...]
+
+for(let i = 1; i <= 10; i++){
+  const outer = []
+
+  for(let j = 1; j <= i; j++) {
+    let sum = 0;
+
+    for(let k = 1; k <= j; k++) {
+      sum += k * k;
+    }
+
+    outer.push([sum / j]);
+  }
+
+  deepThree.push(outer);
+}
+
+
 
 
 
